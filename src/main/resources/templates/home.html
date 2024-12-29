@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.com">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+      body {
+        background: url('/images/Home.jpg') no-repeat center center fixed;
+        background-size: cover;
+        font-family: 'Arial', sans-serif;
+      }
+
+      .navbar {
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar-brand {
+        font-size: 1.8rem;
+        font-weight: bold;
+      }
+
+      .nav-link:hover {
+        color: #ffc107;
+      }
+
+      .dropdown:hover .dropdown-menu {
+        display: block;
+        margin-top: 0;
+      }
+
+      .dropdown-menu {
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .banner {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        height: 100vh;
+        text-align: left;
+        position: relative;
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        padding-left: 50px;
+      }
+
+      .banner-content {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        width: 50%;
+        margin: 0;
+        text-align: center;
+        transition: transform 0.5s ease-in-out;
+      }
+
+      .banner-content:hover {
+        transform: scale(0.9);
+      }
+
+      .banner h1 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        text-align: center;
+        font-weight: bold;
+      }
+
+      .btn-warning {
+        background-color: black;
+        color: white;
+        border: 2px solid black;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .btn-warning:hover {
+        background-color: grey;
+        color: white;
+      }
+
+      .quote {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-top: 20px;
+        text-align: center;
+      }
+
+      .emoji-container {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 30px;
+      }
+
+      .emoji {
+        font-size: 3rem;
+        transition: transform 0.3s ease, color 0.3s ease;
+        cursor: pointer;
+      }
+
+      .emoji:hover {
+        transform: scale(1.5) rotate(15deg);
+        color: #ffc107;
+      }
+
+      .animated-emoji {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .animated-emoji:hover {
+        transform: scale(1.3) rotate(15deg);
+      }
+
+      .animated-emoji span {
+        font-size: 4rem;
+        transition: transform 0.4s ease;
+      }
+
+      .animated-emoji span:hover {
+        transform: scale(1.8) rotate(30deg);
+      }
+
+      .animated-emoji p {
+        margin-top: 5px;
+        font-size: 1rem;
+        font-weight: bold;
+      }
+
+      .custom-footer {
+        background-color: #343a40;
+        color: white;
+        padding: 40px 0;
+        text-align: center;
+        width: 100%;
+      }
+
+      .custom-footer .custom-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .custom-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+
+      .custom-footer-col {
+        flex: 1 1 22%;
+        padding: 10px;
+      }
+
+      .custom-footer-col h4 {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+      }
+
+      .custom-footer-col ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .custom-footer-col ul li {
+        margin: 10px 0;
+      }
+
+      .custom-footer-col ul li a {
+        color: white;
+        text-decoration: none;
+        font-size: 1rem;
+      }
+
+      .custom-footer-col ul li a:hover {
+        text-decoration: underline;
+      }
+
+      .custom-social-links a {
+        margin: 0 10px;
+      }
+
+      .custom-social-links img {
+        width: 30px;
+        height: 30px;
+        transition: transform 0.3s ease;
+      }
+
+      .custom-social-links img:hover {
+        transform: scale(1.2);
+      }
+    </style>
+    <title>Grocery Store</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">Grocery Store</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="#" id="homeDropdown" role="button" aria-expanded="false">Home</a>
+              <ul class="dropdown-menu" aria-labelledby="homeDropdown">
+                <li><a class="dropdown-item" href="/about">About</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="/available_grocery">Available Grocery</a></li>
+            <li class="nav-item"><a class="nav-link" href="/my_grocery">My Grocery</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="productDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Products</a>
+              <ul class="dropdown-menu" aria-labelledby="productDropdown">
+                <li><a class="dropdown-item" href="/fruits">Fruits</a></li>
+                <li><a class="dropdown-item" href="/vegetables">Vegetables</a></li>
+              </ul>
+            </li>
+          </ul>
+          <a class="btn btn-primary" th:href="@{/login}">Login</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="banner">
+      <div class="banner-content">
+        <h1>WELCOME TO THE GROCERY STORE</h1>
+        <p>Freshness Delivered Daily! Discover the Best Deals Every Day.</p>
+        <a href="available_grocery" class="btn btn-warning">Explore Now</a>
+        <p class="quote">
+          "Where Quality Meets Savings"<br>
+          Stock up your shelves with premium groceries at unbeatable prices. Because every meal deserves the best!
+        </p>
+        <div class="emoji-container">
+          <div class="animated-emoji">
+            <span>&#x1F34E;</span>
+            <p>Apple</p>
+          </div>
+          <div class="animated-emoji">
+            <span>&#x1F34C;</span>
+            <p>Banana</p>
+          </div>
+          <div class="animated-emoji">
+            <span>&#x1F347;</span>
+            <p>Grapes</p>
+          </div>
+          <div class="animated-emoji">
+            <span>&#x1F96D;</span>
+            <p>Mango</p>
+          </div>
+          <div class="animated-emoji">
+            <span>&#x1F35E;</span>
+            <p>Bread</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Custom Footer -->
+    <footer class="custom-footer">
+      <div class="custom-container">
+        <div class="custom-row">
+          <div class="custom-footer-col custom-company">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="http://localhost:8083/">Home</a></li>
+              <li><a href="http://localhost:8083/about">About</a></li>
+              <li><a href="http://localhost:8083/available_grocery">Available Grocery</a></li>
+              <li><a href="http://localhost:8083/my_grocery">My Grocery</a></li>
+            </ul>
+          </div>
+
+          <div class="custom-footer-col custom-products">
+            <h4>Products</h4>
+            <ul>
+              <li><a href="http://localhost:8083/fruits">Fruits</a></li>
+              <li><a href="http://localhost:8083/vegetables">Vegitables</a></li>
+              
+            </ul>
+          </div>
+
+          <div class="custom-footer-col custom-services">
+            <h4>Our Services</h4>
+            <ul>
+              <li><a href="../service/transportation.html">Paytm</a></li>
+              <li><a href="../service/warranty.html">Phone Pay</a></li>
+              <li><a href="../service/support.html">Google Pay</a></li>
+            </ul>
+          </div>
+
+          <div class="custom-footer-col custom-social">
+            <h4>Follow Us</h4>
+              
+              <ul>
+              <li><a href="https://www.linkedin.com/in/dipali-deshmukh-b607aa229/">Dipali</a></li>
+              <li><a href="https://www.linkedin.com/in/nehashelke776/,">Neha</a></li>
+              <li><a href="https://www.linkedin.com/in/nikita-patil-4659b5246/">Nikita</a></li>
+            </ul>
+           
+    </div>
+  </div>
+</div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-c1Z58+TzO9Bz3Lf2kgcbgmdTOzIZ2/lurFLJ26l/4tv9d6PQOJe4q2j9I+ykzF3h" crossorigin="anonymous"></script>
+  </body>
+</html>

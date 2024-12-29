@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/0faddc1af8.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background-color: #f8f9fa;
+             background: url('images/Home.jpg') no-repeat center center fixed;
+             background-size: cover;
+             font-family: 'Arial', sans-serif;
+        }
+        .navbar {
+            background-color: #343a40;
+        }
+        .navbar-brand, .nav-link {
+            color: #ffffff !important;
+        }
+        .table {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .table th, .table td {
+            vertical-align: middle;
+            text-align: center;
+        }
+        .btn-secondary {
+            margin-right: 10px;
+        }
+        .fa-pen-to-square {
+            color: #007bff;
+        }
+        .fa-trash {
+            color: #dc3545;
+        }
+        .action-icons a {
+            margin-left: 10px;
+        }
+        .action-icons img {
+            max-width: 120px;
+            height: auto;
+            border-radius: 5px;
+            margin-left: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin-top: 40px;
+        }
+        h2 {
+            font-size: 28px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Grocery Store</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="available_grocery">Available Grocery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="my_grocery">My Grocery</a>
+                    </li>
+                </ul>
+                <a class="btn btn-primary" href="grocery_register">New Grocery Register</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2 class="text-center mb-4">Fruits</h2>
+        <table class="table table-striped table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Product</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="g : ${grocery}">
+                    <td th:text="${g.id}"></td>
+                    <td th:text="${g.name}"></td>
+                    <td th:text="${g.product}"></td>
+                    <td th:text="${g.price}"></td>
+                    <td class="action-icons">
+                        <img src="/images/grocery-image1.jpg" width="200px"/>
+                        <a class="btn btn-secondary btn-sm" th:href="@{/myList/{id}(id=${g.id})}">Add To My Grocery</a>
+                        <a th:href="@{/editGrocery/{id}(id=${g.id})}" title="Edit"><i class="fa-solid fa-pen-to-square"></i></a>
+                        <a th:href="@{/deleteGrocery/{id}(id=${g.id})}" title="Delete"><i class="fa-solid fa-trash"></i></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

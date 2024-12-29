@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.com">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+        crossorigin="anonymous">
+
+    <title>Grocery Store</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url('/images/Edit.jpg'); /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: #343a40;
+        }
+
+        .navbar-brand,
+        .nav-link {
+            color: #ffffff !important;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+            backdrop-filter: blur(10px);
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            transition: transform 0.4s ease-in-out;
+        }
+
+        .container:hover {
+            transform: scale(1.05); /* Zoom-out effect */
+        }
+
+        .form-label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-control {
+            border-radius: 5px;
+        }
+
+        .btn-primary {
+            background-color: #000; /* Black */
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 12px;
+        }
+
+        .btn-primary:hover {
+            background-color: #808080; /* Gray */
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 20px auto;
+                padding: 15px;
+            }
+
+            .btn-primary {
+                font-size: 14px;
+                padding: 10px;
+            }
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand text-white" href="#">Grocery Store</a>
+            <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active text-white"
+                        aria-current="page" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="/available_grocery">Available Grocery</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="/my_grocery">My Grocery</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h4 class="text-center">Edit Grocery Here</h4>
+        <form class="col-md-8 offset-md-2" th:action="@{/save}" method="post" th:object="${grocery}">
+            <input type="hidden" name="id" th:value="${grocery.id}" />
+            <div class="mb-3">
+    <label for="name" class="form-label">Name</label>
+    <input type="text" class="form-control" name="name" th:value="${grocery.name}">
+</div>
+
+<div class="mb-3">
+    <label for="product" class="form-label">Product</label>
+    <input type="text" class="form-control" name="product" th:value="${grocery.product}">
+</div>
+
+<div class="mb-3">
+    <label for="price" class="form-label">Price</label>
+    <input type="text" class="form-control" name="price" th:value="${grocery.price}">
+</div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    
+     
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+</html>

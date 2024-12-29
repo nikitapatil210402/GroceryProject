@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fruits</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+      body {
+        font-family: 'Arial', sans-serif;
+        background: #f9f9f9;
+        color: #343a40;
+        background-color:pink;
+        
+      }
+      .fruit-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        margin-top: 30px;
+      }
+      .fruit-card {
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        width: 220px;
+        margin: 15px;
+        text-align: center;
+        padding: 20px;
+        transition: transform 0.3s ease;
+      }
+      .fruit-card:hover {
+        transform: scale(1.05);
+      }
+      .fruit-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+      .fruit-card h4 {
+        margin-top: 15px;
+        font-size: 1.2rem;
+        color: #ff6347;
+      }
+      .fruit-card p {
+        color: #6c757d;
+      }
+      .back-btn {
+        display: block;
+        margin: 30px auto;
+        padding: 10px 20px;
+        background-color: #ff6347;
+        color: white;
+        border-radius: 5px;
+        text-align: center;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      .back-btn:hover {
+        background-color: #e55347;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container text-center">
+      <h1>Welcome to the Fruits Section</h1>
+      <p>Explore a variety of fresh fruits!</p>
+      
+      <!-- Fruit Cards -->
+      <div class="fruit-container">
+        <div class="fruit-card">
+          <img src="/images/apple.jpg" alt="Apple">
+          <h4>Apple</h4>
+          <p>Fresh and crunchy, perfect for any time of day.</p>
+        </div>
+        <div class="fruit-card">
+          <img src="/images/banana.jpg" alt="Banana">
+          <h4>Banana</h4>
+          <p>Soft, sweet, and packed with nutrients.</p>
+        </div>
+        <div class="fruit-card">
+          <img src="/images/grapes.jpg" alt="Grapes">
+          <h4>Grapes</h4>
+          <p>Juicy and refreshing, a great snack!</p>
+        </div>
+        <div class="fruit-card">
+          <img src="/images/orange.jpg" alt="Orange">
+          <h4>Orange</h4>
+          <p>Sweet and tangy, packed with Vitamin C.</p>
+        </div>
+        <div class="fruit-card">
+          <img src="/images/mango.jpg" alt="Mango">
+          <h4>Mango</h4>
+          <p>Sweet and tropical, the king of fruits!</p>
+        </div>
+        <div class="fruit-card">
+          <img src="/images/strawberry.jpg" alt="Strawberry">
+          <h4>Strawberry</h4>
+          <p>Sweet, tangy, and perfect for desserts.</p>
+        </div>
+        <div class="fruit-card">
+          <img src="/images/pineapple.jpg" alt="Pineapple">
+          <h4>Pineapple</h4>
+          <p>Exotic, tangy, and full of tropical flavor.</p>
+        </div>
+        <div class="fruit-card">
+          <img src="/images/watermelon.jpg" alt="Watermelon">
+          <h4>Watermelon</h4>
+          <p>Refreshing and hydrating for hot summer days.</p>
+        </div>
+        <div class="fruit-card">
+          <img src="/images/peach.jpg" alt="Peach">
+          <h4>Peach</h4>
+          <p>Soft and juicy, with a sweet fragrance.</p>
+        </div>
+        <div class="fruit-card">
+          <img src="/images/kiwi.jpg" alt="Kiwi">
+          <h4>Kiwi</h4>
+          <p>Small, tangy, and packed with vitamin C.</p>
+        </div>
+        <div class="fruit-card">
+          <img src="/images/blueberry.jpg" alt="Blueberry">
+          <h4>Blueberry</h4>
+          <p>Sweet, tiny, and full of antioxidants.</p>
+        </div>
+        <div class="fruit-card">
+          <img src="/images/cherry.jpg" alt="Cherry">
+          <h4>Cherry</h4>
+          <p>Sweet, tart, and perfect for snacking.</p>
+        </div>
+        <div class="fruit-card">
+          <img src="/images/blackberry.jpg" alt="Blackberry">
+          <h4>Blackberry</h4>
+          <p>Juicy and sweet, packed with nutrients.</p>
+        </div>
+        <div class="fruit-card">
+          <img src="/images/pear.jpg" alt="Pear">
+          <h4>Pear</h4>
+          <p>Crisp and juicy, perfect for a refreshing snack.</p>
+        </div>
+        <div class="fruit-card">
+          <img src="/images/plum.jpg" alt="Plum">
+          <h4>Plum</h4>
+          <p>Sweet and tart, perfect for eating or baking.</p>
+        </div>
+        <div class="fruit-card">
+          <img src="/images/dragonfruit.jpg" alt="Dragonfruit">
+          <h4>Dragonfruit</h4>
+          <p>Exotic and vibrant, packed with nutrients.</p>
+        </div>
+        <div class="fruit-card">
+          <img src="/images/pomegranate.jpg" alt="Pomegranate">
+          <h4>Pomegranate</h4>
+          <p>Juicy and sweet, packed with antioxidants.</p>
+        </div>
+        <div class="fruit-card">
+          <img src="/images/jackfruit.jpg" alt="Jackfruit">
+          <h4>Jackfruit</h4>
+          <p>Sweet, tropical, and packed with nutrients.</p>
+        </div>
+        <div class="fruit-card">
+          <img src="/images/lychee.jpg" alt="Lychee">
+          <h4>Lychee</h4>
+          <p>Sweet, aromatic, and deliciously juicy.</p>
+        </div>
+        <div class="fruit-card">
+          <img src="/images/papaya.jpg" alt="Jackfruit">
+          <h4>Papaya</h4>
+          <p>Sweet and packed with nutrients.</p>
+        </div>
+      </div>
+
+      <!-- Back Button -->
+      <a href="/available_grocery" class="back-btn">Back to Available Grocery</a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </body>
+</html>

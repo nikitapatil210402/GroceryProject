@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Grocery Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/0faddc1af8.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Arial', sans-serif;
+        }
+              .navbar {
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar-brand {
+        font-size: 1.8rem;
+        font-weight: bold;
+      }
+
+      .nav-link:hover {
+        color: #ffc107;
+      }
+
+      .dropdown:hover .dropdown-menu {
+        display: block;
+        margin-top: 0;
+      }
+
+      .dropdown-menu {
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+        
+        
+        .hero-section {
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .hero-section h1 {
+            font-size: 48px;
+            font-weight: bold;
+        }
+        .hero-section p {
+            font-size: 18px;
+            margin-top: 15px;
+        }
+        .features-section {
+            padding: 40px 20px;
+        }
+        .features-section h2 {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .feature-card {
+            border: none;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        .feature-icon {
+            font-size: 40px;
+            color: #ff7e5f;
+            margin-bottom: 15px;
+        }
+        .custom-footer {
+        background-color: #343a40;
+        color: white;
+        padding: 40px 0;
+        text-align: center;
+        width: 100%;
+      }
+
+      .custom-footer .custom-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .custom-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+
+      .custom-footer-col {
+        flex: 1 1 22%;
+        padding: 10px;
+      }
+
+      .custom-footer-col h4 {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+      }
+
+      .custom-footer-col ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .custom-footer-col ul li {
+        margin: 10px 0;
+      }
+
+      .custom-footer-col ul li a {
+        color: white;
+        text-decoration: none;
+        font-size: 1rem;
+      }
+
+      .custom-footer-col ul li a:hover {
+        text-decoration: underline;
+      }
+
+      .custom-social-links a {
+        margin: 0 10px;
+      }
+
+      .custom-social-links img {
+        width: 30px;
+        height: 30px;
+        transition: transform 0.3s ease;
+      }
+
+      .custom-social-links img:hover {
+        transform: scale(1.2);
+      }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">Grocery Store</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="#" id="homeDropdown" role="button" aria-expanded="false">Home</a>
+              <ul class="dropdown-menu" aria-labelledby="homeDropdown">
+                <li><a class="dropdown-item" href="/about">About</a></li>
+              </ul>
+            </li>
+            
+            <li class="nav-item"><a class="nav-link" href="/available_grocery">Available Grocery</a></li>
+            <li class="nav-item"><a class="nav-link" href="/my_grocery">My Grocery</a></li>
+
+            <!-- Product Dropdown with Hover Behavior -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="productDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Products
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="productDropdown">
+                <li><a class="dropdown-item" href="/fruits">Fruits</a></li>
+                <li><a class="dropdown-item" href="/vegetables">Vegetables</a></li>
+              </ul>
+            </li>
+          </ul>
+          <a class="btn btn-primary" th:href="@{/login}">Login</a>
+        </div>
+      </div>
+    </nav>
+    
+    <div class="hero-section">
+        <h1>Welcome to Grocery Management System</h1>
+        <p>Your ultimate solution for managing and tracking your grocery needs efficiently and effortlessly.</p>
+    </div>
+
+    <div class="container features-section">
+        <h2>Why Choose Us?</h2>
+        <div class="row text-center mt-4">
+            <div class="col-md-4">
+                <div class="card feature-card p-4">
+                    <i class="fas fa-shopping-cart feature-icon"></i>
+                    <h5>Easy to Use</h5>
+                    <p>Manage your grocery items seamlessly with our user-friendly interface.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card feature-card p-4">
+                    <i class="fas fa-clock feature-icon"></i>
+                    <h5>Time-Saving</h5>
+                    <p>Quickly organize your shopping list and save time at the store.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card feature-card p-4">
+                    <i class="fas fa-leaf feature-icon"></i>
+                    <h5>Sustainability</h5>
+                    <p>Track and reduce waste by keeping a record of your groceries.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5 mb-5">
+        <h2 class="text-center">Our Vision</h2>
+        <p class="text-center mt-3">
+            At Grocery Management System, we strive to make your grocery shopping and management experience hassle-free. 
+            By providing innovative tools and features, we aim to simplify your daily tasks and help you focus on what truly matters.
+        </p>
+    </div>
+
+    <!-- Custom Footer -->
+    <footer class="custom-footer">
+      <div class="custom-container">
+        <div class="custom-row">
+          <div class="custom-footer-col custom-company">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="http://localhost:8083/">Home</a></li>
+              <li><a href="http://localhost:8083/about">About</a></li>
+              <li><a href="http://localhost:8083/available_grocery">Available Grocery</a></li>
+              <li><a href="http://localhost:8083/my_grocery">My Grocery</a></li>
+            </ul>
+          </div>
+
+          <div class="custom-footer-col custom-products">
+            <h4>Products</h4>
+            <ul>
+              <li><a href="http://localhost:8083/fruits">Fruits</a></li>
+              <li><a href="http://localhost:8083/vegetables">Vegitables</a></li>
+              
+            </ul>
+          </div>
+
+          <div class="custom-footer-col custom-services">
+            <h4>Our Services</h4>
+            <ul>
+              <li><a href="../service/transportation.html">Paytm</a></li>
+              <li><a href="../service/warranty.html">Phone Pay</a></li>
+              <li><a href="../service/support.html">Google Pay</a></li>
+            </ul>
+          </div>
+
+          <div class="custom-footer-col custom-social">
+               <h4>Follow Us</h4>
+              
+              <ul>
+              <li><a href="https://www.linkedin.com/in/dipali-deshmukh-b607aa229/">Dipali</a></li>
+              <li><a href="https://www.linkedin.com/in/nehashelke776/,">Neha</a></li>
+              <li><a href="https://www.linkedin.com/in/nikita-patil-4659b5246/">Nikita</a></li>
+            </ul>
+           
+    </div>
+  </div>
+</div>
+    </footer>
+
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+</body>
+</html>
